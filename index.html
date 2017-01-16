@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+        <title>Konstruktor</title>
+        <link rel=stylesheet href=css/main.css>
+    </head>
+    <body>
+        <div class=wrapper>
+            <div id=container></div>
+            <div class=panel>
+                <div class=panel-1>
+                    <div class=panel-title>Библиотека</div>
+                    <div class=libery_head>
+                        <button id=button_base>Основа</button>
+                        <button id=button_print>Принты</button>
+                        <button id=button_text>Текст</button>
+                    </div>
+                    <div class="passive_base clearfix">
+                        <div class=base_header>Выбор основы <button id=close>x</button></div>
+                        <div class=filters><div class="filter-1 clearfix">
+                                <select tabindex=5 class=dropdown data-settings='{"cutOff": 12}'>
+                                    <option class=label>Мужское</option>
+                                    <option value=1>Женское</option>
+                                    <option value=2>Детям</option>
+                                    <option value=3>Чехлы</option>
+                                    <option value=4>Головные уборы</option>
+                                    <option value=5>Сувениры</option>
+                                    <option value=6>Аксессуары чашки</option>
+                                    <option value=7>Полиграфия</option></select>
+                            </div>
+                            <div class="filter-2 clearfix">
+                                <div class=b-dashed></div>
+                                <select tabindex=6 class=dropdown data-settings='{"cutOff": 12}'>
+                                    <option class=label>Все</option><option value=1>Нижнее белье</option>
+                                    <option value=2>Свитшоты</option><option value=3>Футболки с рукавом</option>
+                                    <option value=4>Футболки long sleeve</option><option value=5>Майки</option>
+                                    <option value=6>Тенниски поло</option><option value=7>Регланы</option>
+                                    <option value=7>Кенгурушки</option><option value=7>Спортивная форма</option>
+                                </select>
+                            </div>
+                            <div class="filter-3 clearfix"><div class=left-side>
+                                    <select tabindex=6 class=dropdown data-settings='{"cutOff": 12}'>
+                                        <option class=label>Популярные</option><option value=1>Новые</option>
+                                        <option value=2>Сначало дешевые</option><option value=3>Сначало дорогие</option>
+                                    </select>
+                                </div>
+                                <div class=right-side>
+                                    <form><input placeholder=Поиск>
+                                        <div class=icon></div>
+                                    </form></div>
+                            </div>
+               
+                            
+
+                        </div>
+                        <div class=image_gallery></div>
+                    </div>
+                    <div class=passive_prints hidden="">
+                    </div>
+                    <div class=passive_text hidden=""><p>Текст</p>
+                        <textarea class=your_text value="Ваш текст"></textarea>
+                        <p>Свойства текста</p>
+                        <div class=formats-set>
+                            <select class=active_font onchange=fontSelect();>
+                                <option value=Arial>Arial</option>
+                                <option value=Bauhaus>Bauhaus</option>
+                                <option value=Calibri>Calibri</option>
+                            </select>
+                            <select class=active_fontSize onchange=fontSizeSelect()>
+                                <option value=10>10</option><option value=12>12</option>
+                                <option value=14>14</option><option value=16>16</option>
+                                <option value=18>18</option><option value=20 selected="">20</option>
+                                <option value=24>24</option><option value=28>28</option>
+                                <option value=30>30</option><option value=32>32</option>
+                                <option value=34>34</option>
+                            </select><br>
+                        </div>
+                        <div class=formats>
+                            <button id=italic title=курсив>
+                                <span class="glyphicon glyphicon-italic"></span>
+                            </button> <button id=bold title=жирный>
+                                <span class="glyphicon glyphicon-bold"></span>
+                            </button> <button id=leftSide title="по левому краю">
+                                <span class="glyphicon glyphicon-align-left"></span>
+                            </button> <button id=rightSide title="по правому краю">
+                                <span class="glyphicon glyphicon-align-right"></span></button> 
+                            <button id=centerSide title="по центру">
+                                <span class="glyphicon glyphicon-align-center"></span>
+                            </button></div></div></div><div class=panel-2>
+                    <div class=passive_navigator>
+                        <div class=panel-title>Навигатор</div>
+                        <ul>
+                            <script  type = "text/template" id="navigator">
+                                <%= id%> <%= type%> 
+                            </script>
+                        <button class = 'active_plus'>+</button>
+                        <button class = 'active_minus'>-</button>
+                        </ul>
+                        
+                    </div></div>
+            </div>
+        </div>
+        <script src=js/jquery-2.2.0.js></script>
+        <script src=js/jquery.easydropdown.js></script>
+        <script src=js/Underscore.js></script>
+        <script src=js/backbone.js></script>
+        <script src=js/ui.js></script>
+        <script src=js/konva.js></script>
+
+        <!--Mains-->
+        <script src = 'mains/MainsModel.js'></script>
+        <script src = 'mains/MainsCollection.js'></script>
+        <script src = 'mains/MainsView.js'></script>
+
+        <!--Prints-->
+        <script src = 'prints/PrintsModel.js'></script>
+        <script src = 'prints/PrintsCollection.js'></script>
+        <script src = 'prints/PrintsView.js'></script>
+
+        <!--Texts-->
+        <script src = 'texts/TextsModel.js'></script>
+        <script src = 'texts/TextsCollection.js'></script>
+
+        <!--Navigator-->
+        <script src = 'navigator/NavigatorModel.js'></script>
+        <script src = 'navigator/NavigatorCollection.js'></script>
+        <script src = 'navigator/NavigatorView.js'></script>
+
+        <!--Backbone main file-->
+        <script src = 'js/backbone_Konstryktor.js'></script>
+
+        <!--Konva files-->
+        <script src=js/core.js></script>
+        <script src = 'js/konva_files.js'></script>
+
+
+    </body>
+</html>
